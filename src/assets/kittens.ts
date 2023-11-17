@@ -1,4 +1,4 @@
-import { Cat } from '../types/cat';
+import { Cat } from '../app/types/cat';
 
 export const KITTENS: Cat[] = [
   {
