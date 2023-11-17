@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-ming: #2f6b78;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: var(--color-tundora);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  &.title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: bold;
+  }
+}
