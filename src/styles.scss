@@ -8,6 +8,7 @@ body {
 }
 
 body {
+  // TODO: pick cute google font
   font-family: Inter, Roboto, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: var(--color-tundora);
@@ -17,13 +18,6 @@ body {
   margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-  &.title {
-    font-family: 'Inter', Arial, sans-serif;
-    font-weight: bold;
-  }
+img {
+  display: block;
 }
