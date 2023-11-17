@@ -1,14 +1,20 @@
+<!-- TODO: replace with fixed buttons and/or gestures-->
+<button class="temporary-please-remove" (click)="swipeLeft()">left</button>
+<button class="temporary-please-remove" (click)="swipeRight()">right</button>
+<br />
+<br />
+
 <main class="grid">
   <div
     class="primary-image-container"
-    [ngStyle]="{ 'background-image': 'url(' + activeCat.imagePathNames[0] + ')' }"
+    [ngStyle]="{ 'background-image': 'url(' + cats[activeCatIndex].imagePathNames[0] + ')' }"
   ></div>
 
   <section class="cat-info-container">
-    <h1 class="name">{{ activeCat.name }}</h1>
-    <p [innerHTML]="activeCat.bio"></p>
-    @for (catImg of activeCat.imagePathNames;track $index) {
-    <img class="secondary-image" src="{{ catImg }}" alt="{{ activeCat.name }} picture - {{ $index }}" />
+    <h1 class="name">{{ cats[activeCatIndex].name }}</h1>
+    <p [innerHTML]="cats[activeCatIndex].bio"></p>
+    @for (catImg of cats[activeCatIndex].imagePathNames;track $index) {
+    <img class="secondary-image" src="{{ catImg }}" alt="{{ cats[activeCatIndex].name }} picture - {{ $index }}" />
     }
   </section>
 </main>

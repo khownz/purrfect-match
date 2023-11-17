@@ -15,42 +15,37 @@ export const KITTENS: Cat[] = [
   },
   {
     name: 'Odette',
-    bio: 'TODO',
+    bio: 'TODO 2',
     imagePathNames: ['assets/kittens/odette-1.jpg', 'assets/kittens/odette-2.jpg'],
   },
   {
     name: '',
-    bio: 'TODO',
+    bio: 'TODO 3',
     imagePathNames: [],
   },
   {
     name: '',
-    bio: 'TODO',
+    bio: 'TODO 4',
     imagePathNames: [],
   },
   {
     name: '',
-    bio: 'TODO',
+    bio: 'TODO 5',
     imagePathNames: [],
   },
   {
     name: '',
-    bio: 'TODO',
+    bio: 'TODO 6',
     imagePathNames: [],
   },
   {
     name: '',
-    bio: 'TODO',
+    bio: 'TODO 7',
     imagePathNames: [],
   },
   {
     name: '',
-    bio: 'TODO',
-    imagePathNames: [],
-  },
-  {
-    name: '',
-    bio: 'TODO',
+    bio: 'TODO 8',
     imagePathNames: [],
   },
 ];
