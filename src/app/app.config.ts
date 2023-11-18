@@ -6,6 +6,7 @@ import { ConfigService } from './core/config/config.service';
 import { provideHttpClient } from '@angular/common/http';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule } from '@angular/platform-browser';
 import * as Hammer from 'hammerjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export class MyHammerConfig extends HammerGestureConfig {
   override overrides = <any>{
@@ -21,6 +22,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(),
+    importProvidersFrom([BrowserAnimationsModule]),
     importProvidersFrom(HammerModule),
     {
       provide: APP_INITIALIZER,

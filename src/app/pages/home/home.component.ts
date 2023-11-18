@@ -7,11 +7,12 @@ import { startVibration } from '../../core/utils/vibration.utils';
 import { PATHS } from '../../app.routes';
 import { Router } from '@angular/router';
 import { fireHeartsConfetti } from '../../core/utils/confetti.utils';
+import { ScratchComponent } from '../../components/scratch/scratch.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, DrawerComponent, PawComponent],
+  imports: [CommonModule, DrawerComponent, PawComponent, ScratchComponent],
   styleUrl: './home.component.scss',
   template: `
     <main #appRoot>
@@ -37,6 +38,7 @@ import { fireHeartsConfetti } from '../../core/utils/confetti.utils';
           <app-paw color="red" rotate="left" (click)="swipeLeft()" />
           <app-paw color="green" rotate="right" (click)="swipeRight()" />
         </div>
+        <app-scratch class="scratch"></app-scratch>
       </section>
     </main>
   `,
@@ -44,6 +46,7 @@ import { fireHeartsConfetti } from '../../core/utils/confetti.utils';
 export class HomeComponent {
   @ViewChild('appRoot', { static: false }) appRoot!: ElementRef;
   @ViewChild('swipeContainer', { static: false }) swipeContainer!: ElementRef;
+  @ViewChild(ScratchComponent) scratch!: ScratchComponent;
 
   cats = KITTENS;
   activeCatIndex = 0;
@@ -73,6 +76,8 @@ export class HomeComponent {
     this.#vibrate();
     this.#showNextCat();
     this.#scrollToTop();
+
+    this.scratch.scratch();
   }
 
   swipeRight(): void {
