@@ -10,10 +10,11 @@ export const PATHS = {
 export const routes: Routes = [
   {
     path: PATHS.ROOT,
+    pathMatch: 'full',
     component: HomeComponent,
   },
   {
-    path: PATHS.ADOPT_CONFIRM,
+    path: `${PATHS.ADOPT_CONFIRM}/:catId`,
     component: AdoptConfirmComponent,
   },
   {

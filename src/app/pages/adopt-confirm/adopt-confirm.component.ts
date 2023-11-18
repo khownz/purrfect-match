@@ -1,8 +1,10 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { PATHS } from '../../app.routes';
 import { BadgeComponent } from '../../components/badge/badge.component';
+import { Cat } from '../../types/cat';
+import { KITTENS } from '../../data/kittens';
 
 @Component({
   selector: 'app-adopt-confirm',
@@ -12,15 +14,22 @@ import { BadgeComponent } from '../../components/badge/badge.component';
   template: `
     <section>
       <app-badge [text]="'Kijk nog even verder'" (click)="goHome()"></app-badge>
-      <p>Wat leuk dat jij {{ catName }} wil adopteren</p>
+      @if (cat) {
+      <p>Wat leuk dat jij {{ cat.name }} wil adopteren</p>
+      }
       <app-badge [text]="'Ik ga er voor!'" (click)="openAdoptionForm()"></app-badge>
     </section>
   `,
 })
-export class AdoptConfirmComponent {
-  @Input() catName = '';
+export class AdoptConfirmComponent implements OnInit {
+  @Input() catId!: Cat['id'];
+  cat: Cat | undefined;
 
   private readonly router: Router = inject(Router);
+
+  ngOnInit() {
+    this.cat = KITTENS.find((cat) => this.catId === cat.id);
+  }
 
   goHome(): void {
     this.router.navigate([PATHS.ROOT]);

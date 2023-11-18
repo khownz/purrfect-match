@@ -95,7 +95,7 @@ export class HomeComponent {
   }
 
   #goToAdoptionConfirmationPage(): void {
-    this.router.navigate([PATHS.ADOPT_CONFIRM]);
+    this.router.navigate([PATHS.ADOPT_CONFIRM, this.cats[this.activeCatIndex].id]);
   }
 
   #vibrate(): void {
