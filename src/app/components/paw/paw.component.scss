@@ -1,0 +1,13 @@
+.paw {
+  &-image {
+    filter: drop-shadow(0 3px 3px rgb(0 0 0 / 0.5));
+  }
+}
+
+.left {
+  transform: rotate(-15deg);
+}
+
+.right {
+  transform: rotate(15deg);
+}

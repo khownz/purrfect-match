@@ -18,6 +18,7 @@ import { PawComponent } from '../../components/paw/paw.component';
       (pan)="pan($event)"
       (panend)="resetView()"
     >
+        <div class="gradient-overlay-top"></div>
       <div
         class="primary-image"
         [ngStyle]="{ 'background-image': 'url(' + cats[activeCatIndex].imagePathNames[0] + ')' }"
@@ -25,9 +26,10 @@ import { PawComponent } from '../../components/paw/paw.component';
 
       <app-drawer [activeCat]="cats[activeCatIndex]"></app-drawer>
 
+      <div class="gradient-overlay-bottom"></div>
       <div class="paw-buttons">
-        <app-paw color="red" (click)="swipeLeft()" />
-        <app-paw color="green" (click)="swipeRight()" />
+        <app-paw color="red" rotate="left" (click)="swipeLeft()" />
+        <app-paw color="green" rotate="right" (click)="swipeRight()" />
       </div>
     </main>
   `,
@@ -56,6 +58,7 @@ export class HomeComponent {
 
   swipeLeft(): void {
     this.#showNextCat();
+    this.scrollToTop();
   }
 
   swipeRight(): void {
@@ -72,5 +75,9 @@ export class HomeComponent {
 
   #openAdoptionForm(): void {
     window.open('https://www.purrito.be/adoptieformulier/', '_blank');
+  }
+
+  scrollToTop() {
+    window.scroll(0, 0);
   }
 }
