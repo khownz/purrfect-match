@@ -1,14 +1,1 @@
-<!-- TODO: replace with fixed buttons and/or gestures-->
-<button class="temporary-please-remove" (click)="swipeLeft()">left</button>
-<button class="temporary-please-remove" (click)="swipeRight()">right</button>
-<br />
-<br />
-
-<main class="grid">
-  <div
-    class="primary-image"
-    [ngStyle]="{ 'background-image': 'url(' + cats[activeCatIndex].imagePathNames[0] + ')' }"
-  ></div>
-
-  <app-drawer [activeCat]="cats[activeCatIndex]"></app-drawer>
-</main>
+<router-outlet></router-outlet>
