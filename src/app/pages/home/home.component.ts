@@ -19,6 +19,7 @@ import { startVibration } from '../../core/utils/vibration.utils';
       (pan)="pan($event)"
       (panend)="resetView()"
     >
+      <img class="logo" src="assets/logo.svg" />
       <div class="gradient-overlay-top"></div>
       <div
         class="primary-image"
