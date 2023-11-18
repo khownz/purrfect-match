@@ -3,6 +3,7 @@ import { Cat } from '../types/cat';
 export const KITTENS: Cat[] = [
   {
     name: 'Ricky & Roxy',
+    likes: ['Avonturen', 'Speelse Vriendjes', 'Knuffelmomenten', 'Rusten'],
     bio:
       '🐾 Ricky en Roxy, een ondeugend broer-zus duo op ontdekkingstocht in de wereld.<br/>' +
       '🐱 Voor Roxy lijkt dat niet evident met drie pootjes, maar als je haar rond ziet lopen, merk je er niets van.<br/>' +
@@ -22,6 +23,7 @@ export const KITTENS: Cat[] = [
   },
   {
     name: 'Opoes & Ophelia',
+    likes: ['Ontdekkingen', 'Dutjes doen', 'Geborgenheid vinden', 'Knuffelen'],
     bio:
       '🐾 Ik ben Opoes, een zwart kattinnetje met witte snoet en witte pootjes.<br/>' +
       '🌟 Ontdekken doe ik met veel plezier, al moet ik toegeven dat dat dutje erna wel nog veel deugd doet.<br/>' +
