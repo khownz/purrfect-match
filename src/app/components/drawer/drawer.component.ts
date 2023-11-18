@@ -19,12 +19,17 @@ import { BadgeComponent } from '../badge/badge.component';
           <h1 class="cat-name">{{ activeCat.name }}</h1>
           <span class="cat-age">{{ activeCat.age }}</span>
         </div>
+
         <div class="cat-likes">
           @for (like of activeCat.likes;track $index) {
           <app-badge [text]="like"></app-badge>
           }
         </div>
-        <p [innerHTML]="activeCat.bio"></p>
+
+        <div class="cat-bio-container">
+          <h2 class="title">Over {{ activeCat.name }}</h2>
+          <p [innerHTML]="activeCat.bio"></p>
+        </div>
       </section>
 
       <section class="secondary-images-container">
