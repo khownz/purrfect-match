@@ -12,12 +12,15 @@ import { KITTENS } from '../../data/kittens';
   imports: [CommonModule, BadgeComponent],
   styleUrl: './adopt-confirm.component.scss',
   template: `
-    <section>
-      <app-badge [text]="'Kijk nog even verder'" (click)="goHome()"></app-badge>
-      @if (cat) {
-      <p>Wat leuk dat jij {{ cat.name }} wil adopteren</p>
-      }
-      <app-badge [text]="'Ik ga er voor!'" (click)="openAdoptionForm()"></app-badge>
+    <section class="adopt-confirm-page">
+      <div class="back-arrow" (click)="goHome()"></div>
+      <img class="cat-profile-img" src="{{ cat?.imagePathNames?.[0] }}" alt="{{ cat?.name }} picture" />
+      <h1 class="name">{{ cat?.name }}</h1>
+      <p class="central-text">
+        Wat ontzettend leuk en bijzonder dat je mij wil adopteren! Het idee alleen al brengt een glimlach op mijn
+        gezicht en verwarmt mijn hart. Ik kijk reikhalzend uit naar de mooie avonturen die we samen gaan beleven!
+      </p>
+      <button class="confirm-button" (click)="openAdoptionForm()">I choose you!</button>
     </section>
   `,
 })

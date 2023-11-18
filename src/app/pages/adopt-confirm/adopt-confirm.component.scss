@@ -1,0 +1,50 @@
+.adopt-confirm-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-background);
+  height: 100%;
+  padding: 3rem 2rem 2rem;
+  box-sizing: border-box;
+
+  .back-arrow {
+    padding: 2rem;
+    background-color: var(--color-text);
+    -webkit-mask: url(/assets/arrow-back.svg) no-repeat center;
+    mask: url(/assets/arrow-back.svg) no-repeat center;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .cat-profile-img {
+    border-radius: 10rem;
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+  }
+
+  .name {
+    color: var(--color-text);
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .central-text {
+    flex-grow: 1;
+    color: var(--color-text);
+    text-align: center;
+  }
+
+  .confirm-button {
+    font-family: inherit;
+
+    color: var(--brandy);
+    background: var(--spice);
+    padding: 0.735rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 2rem;
+    border: none;
+  }
+}
