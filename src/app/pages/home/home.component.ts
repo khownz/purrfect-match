@@ -1,9 +1,11 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DrawerComponent } from '../../components/drawer/drawer.component';
 import { KITTENS } from '../../data/kittens';
 import { PawComponent } from '../../components/paw/paw.component';
 import { startVibration } from '../../core/utils/vibration.utils';
+import { PATHS } from '../../app.routes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -45,6 +47,8 @@ export class HomeComponent {
   cats = KITTENS;
   activeCatIndex = 0;
 
+  private readonly router: Router = inject(Router);
+
   pan(event: any): void {
     if (event.deltaX === 0) return;
     if (event.center.x === 0 && event.center.y === 0) return;
@@ -72,7 +76,7 @@ export class HomeComponent {
 
   swipeRight(): void {
     this.#vibrate();
-    this.#openAdoptionForm();
+    this.#goToAdoptionConfirmationPage();
   }
 
   #scrollToTop() {
@@ -87,8 +91,8 @@ export class HomeComponent {
     }
   }
 
-  #openAdoptionForm(): void {
-    window.open('https://www.purrito.be/adoptieformulier/', '_blank');
+  #goToAdoptionConfirmationPage(): void {
+    this.router.navigate([PATHS.ADOPT_CONFIRM]);
   }
 
   #vibrate(): void {
