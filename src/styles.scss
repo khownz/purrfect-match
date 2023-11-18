@@ -1,11 +1,28 @@
 :root {
-  --green: #70792cff;
-  --dark-brown: #42280aff;
-  --brown: #66462cff;
-  --beige: #dcc48eff;
-  --creme: #f8f4e5ff;
-  --paw-green-light: #f2fabb;
-  --paw-red-light: #ffd1d1;
+  --astra: #f2fabb;
+  --brandy: #dcc48e;
+  --bronze: #42280a;
+  --cosmos: #ffd1d1;
+  --quarter-spanish-white: #f8f4e5;
+  --spice: #66462c;
+  --tan: #d2b48c;
+  --tuatara: #232321;
+}
+
+html {
+  --color-background: var(--quarter-spanish-white);
+  --color-text: var(--bronze);
+  --color-action-background: var(--brandy);
+  --color-success: var(--astra);
+  --color-danger: var(--cosmos);
+}
+
+html.dark {
+  --color-background: var(--tuatara);
+  --color-text: var(--tan);
+  --color-action-background: var(--spice);
+  --color-success: var(--astra);
+  --color-danger: var(--cosmos);
 }
 
 html,
@@ -22,7 +39,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
 
-  background-color: var(--creme);
+  background-color: var(--color-background);
 }
 
 h1,

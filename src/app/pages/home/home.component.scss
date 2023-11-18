@@ -5,12 +5,12 @@ main {
 
   &.cat-love {
     background-image: url('/assets/green_paw.svg');
-    background-color: var(--paw-green-light);
+    background-color: var(--color-success);
   }
 
   &.cat-claw {
     background-image: url('/assets/red_paw.svg');
-    background-color: var(--paw-red-light);
+    background-color: var(--color-danger);
   }
 }
 
