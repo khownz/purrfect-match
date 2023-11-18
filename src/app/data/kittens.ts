@@ -58,7 +58,13 @@ export const KITTENS: Cat[] = [
     name: 'Odette',
     age: '2 jaar',
     likes: ['Fletsen', 'Kopjes geven', 'Aaitjes krijgen'],
-    bio: 'TODO',
+    bio:
+      '🐾 Ik ben een 2-jarige tricolor, gesteriliseerde kattin met een bijzonder verhaal.<br/>' +
+      "🤰 Toen ze mij vonden, was ik zwanger. Na sterilisatie was ik nog in 'mamamodus' en kreeg ik 2 nestjes om groot te trekken. Wat ik met glans en glorie doe.<br/>" +
+      '😸 Men dacht dat ik een wilde kat ben. Nee hoor… ik ben een lieve poes.<br/>' +
+      '🙅‍♀️ Ik word niet graag opgetild en vastgepakt; dat maakt mij bang en onrustig.<br/>' +
+      '🐱 Ik laat duidelijk weten wat ik leuk vind en wat niet. Ik ben heel lief en kom graag kopjes geven en aaitjes geven.<br/>' +
+      '🏡 Zodra mijn kids de deur uit zijn, zoek ik een thuis waar ik de tijd en ruimte krijg. Waar ik me kan ontplooien tot een lieve fletskat die je vertrouwt.',
     imagePathNames: ['assets/kittens/odette-1.jpg', 'assets/kittens/odette-2.jpg'],
   },
   { ...MYSTERY_CAT },
@@ -66,7 +72,11 @@ export const KITTENS: Cat[] = [
     name: 'Jools & Joey',
     age: '8 maanden',
     likes: ['Rollebollen', 'Spelen', 'Knuffelen', 'Verkennen'],
-    bio: 'TODO',
+    bio:
+      '🐯 Joey, lieve tijger, houdt van spelen en knuffels.<br/>' +
+      '🏡 Zoekt warme thuis met mama Jools, sociaal en speels.<br/>' +
+      '🌈 Veel bewegingsruimte binnen en buiten nodig.<br/>' +
+      "🚫 Geen andere katten, honden of kleine kinderen vanwege Jools' temperament.",
     imagePathNames: [
       'assets/kittens/jools-joey-1.png',
       'assets/kittens/jools-joey-2.png',
@@ -81,14 +91,24 @@ export const KITTENS: Cat[] = [
     name: 'Dora',
     age: '10 maanden',
     likes: ['Geduld', 'Aandacht', 'Liefde', 'Kopjes geven'],
-    bio: 'TODO',
+    bio:
+      '🐾 Dora, prachtige lapjeskat met sprekende groene ogen.<br/>' +
+      '💔 Jong trauma maakt haar verlegen en wantrouwend, niet agressief, maar houdt niet van aanraking.<br/>' +
+      '🏡 Met geduld en liefde kan ze uitgroeien tot een lieve huiskat; geeft al kopjes aan haar opvangmama.<br/>' +
+      '🚸 Niet geschikt voor gezin met kleine kinderen of honden, maar komt goed overeen met andere katten zolang ze zich kan terugtrekken.',
     imagePathNames: ['assets/kittens/dora-1.jpg', 'assets/kittens/dora-2.jpg', 'assets/kittens/dora-3.jpg'],
   },
   {
     name: 'Frankie & Fen',
     age: '7 maanden',
     likes: ['Warmte', 'Samen ravotten', 'Geduld', 'Buiten zijn'],
-    bio: 'TODO',
+    bio:
+      '👋 Hallo, wij zijn (pleeg)broertjes Frankie en Fen.<br/>' +
+      '🤝 Beide hebben wat tijd nodig om te wennen aan mensen, maar voelen zich super thuis, lekker warm.<br/>' +
+      '🙌 Niet zo fan van grijpende handen, maar ik, Frankie, heb prachtige witte sokjes, terwijl mijn broertje nergens een spikkeltje wit heeft!<br/>' +
+      '👁️ Helaas heeft mijn broertje zijn oogje verloren door ziekte, maar dat weerhoudt hem er niet van om achter mij aan te lopen. Hij is er snel aan gewend, dat is duidelijk!<br/>' +
+      '🛋️ Niet echt knuffelkatjes, maar liggen graag wat verder op de zetel en ravotten rond met elkaar.<br/>' +
+      '🏡 Fen en Frankie zoeken een huisje waar geduld en begrip voor hen is. Ze hebben misschien na een wenperiode behoefte om buiten te zijn. Andere kattenvriendjes zijn geen probleem.',
     imagePathNames: [
       'assets/kittens/frankie-fen-1.jpg',
       'assets/kittens/frankie-fen-2.jpeg',
@@ -100,7 +120,10 @@ export const KITTENS: Cat[] = [
     name: 'Simba & Scooby',
     age: '1 jaar',
     likes: ['Actief spelen', 'Kopjes geven', 'Klimmen', 'Knuffelen'],
-    bio: 'TODO',
+    bio:
+      '🐾 Simba, mooi tijgertje met grote vlekken, actief en nieuwsgierig. Kopjes na het spelen.<br/>' +
+      "🐯 Scooby, grijs tijgertje met witte sokjes. Spring in 't veld, houdt van balletjes, klimmen en knuffelen.<br/>" +
+      '🏡 Op zoek naar een forever-home in een gezin, met of zonder kindjes en andere dierenvriendjes.',
     imagePathNames: [
       'assets/kittens/simba-scooby-1.jpg',
       'assets/kittens/simba-scooby-2.jpg',
