@@ -18,7 +18,7 @@ import { PawComponent } from '../../components/paw/paw.component';
       (pan)="pan($event)"
       (panend)="resetView()"
     >
-        <div class="gradient-overlay-top"></div>
+      <div class="gradient-overlay-top"></div>
       <div
         class="primary-image"
         [ngStyle]="{ 'background-image': 'url(' + cats[activeCatIndex].imagePathNames[0] + ')' }"
@@ -44,8 +44,10 @@ export class HomeComponent {
     if (event.deltaX === 0) return;
     if (event.center.x === 0 && event.center.y === 0) return;
 
-    // tinderContainer.classList.toggle('tinder_love', event.deltaX > 0);
-    // tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
+    // TODO: should probably not be applied to body, but to a wrapper div instead
+    document.body.classList.toggle('cat-love', event.deltaX > 0);
+    document.body.classList.toggle('cat-claw', event.deltaX < 0);
+    document.body.style.backgroundSize = `${Math.abs(event.deltaX) * 0.15}%`;
 
     const rotate = event.deltaX * 0.02;
     this.container.nativeElement.style.transform =
@@ -53,6 +55,8 @@ export class HomeComponent {
   }
 
   resetView(): void {
+    document.body.classList.remove('cat-love', 'cat-claw');
+    document.body.style.backgroundSize = 'initial';
     this.container.nativeElement.style.transform = '';
   }
 
@@ -65,6 +69,10 @@ export class HomeComponent {
     this.#openAdoptionForm();
   }
 
+  scrollToTop() {
+    window.scroll(0, 0);
+  }
+
   #showNextCat() {
     if (this.activeCatIndex === this.cats.length - 1) {
       this.activeCatIndex = 0;
@@ -75,9 +83,5 @@ export class HomeComponent {
 
   #openAdoptionForm(): void {
     window.open('https://www.purrito.be/adoptieformulier/', '_blank');
-  }
-
-  scrollToTop() {
-    window.scroll(0, 0);
   }
 }
