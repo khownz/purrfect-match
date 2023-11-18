@@ -3,6 +3,7 @@ import { Cat } from '../types/cat';
 export const KITTENS: Cat[] = [
   {
     name: 'Ricky & Roxy',
+    age: '5 maanden',
     likes: ['Avonturen', 'Speelse Vriendjes', 'Knuffelmomenten', 'Rusten'],
     bio:
       '🐾 Ricky en Roxy, een ondeugend broer-zus duo op ontdekkingstocht in de wereld.<br/>' +
@@ -23,6 +24,7 @@ export const KITTENS: Cat[] = [
   },
   {
     name: 'Opoes & Ophelia',
+    age: '3 maanden',
     likes: ['Ontdekkingen', 'Dutjes doen', 'Geborgenheid vinden', 'Knuffelen'],
     bio:
       '🐾 Ik ben Opoes, een zwart kattinnetje met witte snoet en witte pootjes.<br/>' +
@@ -36,12 +38,14 @@ export const KITTENS: Cat[] = [
   },
   {
     name: 'Odette',
+    age: '2 jaar',
     likes: ['Fletsen', 'Kopjes geven', 'Aaitjes krijgen'],
     bio: 'TODO',
     imagePathNames: ['assets/kittens/odette-1.jpg', 'assets/kittens/odette-2.jpg'],
   },
   {
     name: 'Jools & Joey',
+    age: '8 maanden',
     likes: ['Rollebollen', 'Spelen', 'Knuffelen', 'Verkennen'],
     bio: 'TODO',
     imagePathNames: [
@@ -56,12 +60,14 @@ export const KITTENS: Cat[] = [
   },
   {
     name: 'Dora',
+    age: '10 maanden',
     likes: ['Geduld', 'Aandacht', 'Liefde', 'Kopjes geven'],
     bio: 'TODO',
     imagePathNames: ['assets/kittens/dora-1.jpg', 'assets/kittens/dora-2.jpg', 'assets/kittens/dora-3.jpg'],
   },
   {
     name: 'Frankie & Fen',
+    age: '7 maanden',
     likes: ['Warmte', 'Samen ravotten', 'Geduld', 'Buiten zijn'],
     bio: 'TODO',
     imagePathNames: [
@@ -73,6 +79,7 @@ export const KITTENS: Cat[] = [
   },
   {
     name: 'Simba & Scooby',
+    age: '1 jaar',
     likes: ['Actief spelen', 'Kopjes geven', 'Klimmen', 'Knuffelen'],
     bio: 'TODO',
     imagePathNames: [
