@@ -6,13 +6,16 @@
 
 <main class="grid">
   <div
-    class="primary-image-container"
+    class="primary-image"
     [ngStyle]="{ 'background-image': 'url(' + cats[activeCatIndex].imagePathNames[0] + ')' }"
   ></div>
 
-  <section class="cat-info-container">
-    <h1 class="name">{{ cats[activeCatIndex].name }}</h1>
+  <section class="cat-details">
+    <h1>{{ cats[activeCatIndex].name }}</h1>
     <p [innerHTML]="cats[activeCatIndex].bio"></p>
+  </section>
+
+  <section class="secondary-images-container">
     @for (catImg of cats[activeCatIndex].imagePathNames;track $index) {
     <img class="secondary-image" src="{{ catImg }}" alt="{{ cats[activeCatIndex].name }} picture - {{ $index }}" />
     }
