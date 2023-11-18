@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DrawerComponent } from '../../components/drawer/drawer.component';
 import { KITTENS } from '../../data/kittens';
 import { PawComponent } from '../../components/paw/paw.component';
+import { startVibration } from '../../core/utils/vibration.utils';
 
 @Component({
   selector: 'app-home',
@@ -61,15 +62,17 @@ export class HomeComponent {
   }
 
   swipeLeft(): void {
+    this.#vibrate();
     this.#showNextCat();
-    this.scrollToTop();
+    this.#scrollToTop();
   }
 
   swipeRight(): void {
+    this.#vibrate();
     this.#openAdoptionForm();
   }
 
-  scrollToTop() {
+  #scrollToTop() {
     window.scroll(0, 0);
   }
 
@@ -83,5 +86,9 @@ export class HomeComponent {
 
   #openAdoptionForm(): void {
     window.open('https://www.purrito.be/adoptieformulier/', '_blank');
+  }
+
+  #vibrate(): void {
+    startVibration(500);
   }
 }
