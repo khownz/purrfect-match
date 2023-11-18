@@ -2,32 +2,59 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DrawerComponent } from '../../components/drawer/drawer.component';
 import { KITTENS } from '../../data/kittens';
+import { PawComponent } from '../../components/paw/paw.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, DrawerComponent],
+  imports: [CommonModule, DrawerComponent, PawComponent],
   styleUrl: './home.component.scss',
   template: `
-    <!-- TODO: replace with fixed buttons and/or gestures-->
-    <button class="temporary-please-remove" (click)="swipeLeft()">left</button>
-    <button class="temporary-please-remove" (click)="swipeRight()">right</button>
-    <br />
-    <br />
-
-    <main class="grid">
+    <main
+      class="grid"
+      (swipeleft)="swipeLeft()"
+      (swiperight)="swipeRight()"
+      (pan)="pan($event)"
+      (panend)="panend($event)"
+    >
       <div
         class="primary-image"
         [ngStyle]="{ 'background-image': 'url(' + cats[activeCatIndex].imagePathNames[0] + ')' }"
       ></div>
 
       <app-drawer [activeCat]="cats[activeCatIndex]"></app-drawer>
+
+      <div class="paw-buttons">
+        <app-paw color="red" (click)="swipeLeft()" />
+        <app-paw color="green" (click)="swipeRight()" />
+      </div>
     </main>
   `,
 })
 export class HomeComponent {
   cats = KITTENS;
   activeCatIndex = 0;
+
+  pan(event: any): void {
+    console.log('pan');
+
+    if (event.deltaX === 0) return;
+    if (event.center.x === 0 && event.center.y === 0) return;
+
+    // tinderContainer.classList.toggle('tinder_love', event.deltaX > 0);
+    // tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
+
+    const rotate = event.deltaX * 0.03;
+
+    // TODO: replace with elementRef
+    const main = document.querySelector('main.grid') as HTMLElement;
+    main.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
+  }
+
+  panend(event: any): void {
+    const main = document.querySelector('main.grid') as HTMLElement;
+    main.style.transform = '';
+  }
 
   swipeLeft(): void {
     this.#showNextCat();
