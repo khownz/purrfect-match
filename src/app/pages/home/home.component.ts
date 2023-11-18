@@ -10,7 +10,7 @@ import { PawComponent } from '../../components/paw/paw.component';
   imports: [CommonModule, DrawerComponent, PawComponent],
   styleUrl: './home.component.scss',
   template: `
-    <main class="grid">
+    <main class="grid" (swipeleft)="swipeLeft()" (swiperight)="swipeRight()">
       <div
         class="primary-image"
         [ngStyle]="{ 'background-image': 'url(' + cats[activeCatIndex].imagePathNames[0] + ')' }"

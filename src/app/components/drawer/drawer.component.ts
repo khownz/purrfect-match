@@ -9,7 +9,7 @@ import { BadgeComponent } from '../badge/badge.component';
   imports: [CommonModule, BadgeComponent],
   styleUrl: './drawer.component.scss',
   template: `
-    <div class="cat-drawer" (swipeleft)="onSwipeLeft()" (swiperight)="onSwipeRight()">
+    <div class="cat-drawer">
       <div class="cat-ears">
         <div class="cat-ears-bg"></div>
         <div class="cat-ears-image"></div>
@@ -37,12 +37,4 @@ import { BadgeComponent } from '../badge/badge.component';
 })
 export class DrawerComponent {
   @Input() activeCat!: Cat;
-
-  onSwipeLeft(): void {
-    alert('swiped left');
-  }
-
-  onSwipeRight(): void {
-    alert('swiped right');
-  }
 }
