@@ -12,6 +12,11 @@
 
   <section class="cat-details">
     <h1>{{ cats[activeCatIndex].name }}</h1>
+    <div class="cat-likes">
+      @for (like of cats[activeCatIndex].likes;track $index) {
+      <app-badge [text]="like"></app-badge>
+      }
+    </div>
     <p [innerHTML]="cats[activeCatIndex].bio"></p>
   </section>
 

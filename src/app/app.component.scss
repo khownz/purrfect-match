@@ -7,10 +7,17 @@
     background-position-x: center;
   }
 
-  .cat-details {
-    padding: 1rem;
-  }
+  .cat {
+    &-details {
+      padding: 1rem;
+    }
 
+    &-likes {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+  }
   .secondary-images-container {
     display: flex;
     flex-direction: column;
