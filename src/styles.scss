@@ -1,5 +1,9 @@
 :root {
-  --color-ming: #2f6b78;
+  --green: #70792cff;
+  --dark-brown: #42280aff;
+  --brown: #66462cff;
+  --beige: #dcc48eff;
+  --creme: #eaefd3ff;
 }
 
 html,
@@ -27,4 +31,8 @@ h5 {
 
 img {
   display: block;
+}
+
+p {
+  margin: 0;
 }

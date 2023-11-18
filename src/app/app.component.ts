@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { KITTENS } from './data/kittens';
 import { BadgeComponent } from './components/badge/badge.component';
+import { DrawerComponent } from './components/drawer/drawer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, BadgeComponent],
+  imports: [CommonModule, RouterOutlet, DrawerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

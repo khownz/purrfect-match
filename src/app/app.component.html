@@ -10,19 +10,5 @@
     [ngStyle]="{ 'background-image': 'url(' + cats[activeCatIndex].imagePathNames[0] + ')' }"
   ></div>
 
-  <section class="cat-details">
-    <h1>{{ cats[activeCatIndex].name }}</h1>
-    <div class="cat-likes">
-      @for (like of cats[activeCatIndex].likes;track $index) {
-      <app-badge [text]="like"></app-badge>
-      }
-    </div>
-    <p [innerHTML]="cats[activeCatIndex].bio"></p>
-  </section>
-
-  <section class="secondary-images-container">
-    @for (catImg of cats[activeCatIndex].imagePathNames;track $index) {
-    <img class="secondary-image" src="{{ catImg }}" alt="{{ cats[activeCatIndex].name }} picture - {{ $index }}" />
-    }
-  </section>
+  <app-drawer [activeCat]="cats[activeCatIndex]"></app-drawer>
 </main>
