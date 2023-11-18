@@ -28,7 +28,8 @@ export const KITTENS: Cat[] = [
       '🤝 Sociale kittens die graag spelen met elkaar en andere katten, altijd van de partij als je op de zetel zit.<br/>' +
       '🛋️ Geen typische schootkatten, Ricky laat zich regelmatig aaien maar heeft ook zijn rustmomenten nodig.<br/>' +
       '🐾 Roxy laat liever niet aaien, maar ze laat het toe als ze je eenmaal kent en durft dan al wel eens te spinnen.<br/>' +
-      '🚀 Ricky vliegt meteen rond in je huis, wil je meteen leren kennen. 🕰️ Roxy heeft meer tijd nodig, kijkt in het begin de kat uit de boom (pun unintended), maar het is leuk haar vooruitgang te zien maken.<br/>' +
+      '🚀 Ricky vliegt meteen rond in je huis, wil je meteen leren kennen. <br/>' +
+      '🕰️ Roxy heeft meer tijd nodig, kijkt in het begin de kat uit de boom (pun unintended), maar het is leuk haar vooruitgang te zien maken.<br/>' +
       '🚸 Vanwege hun rustmomenten raden we hen niet aan voor gezinnen met jonge kinderen.<br/>' +
       '🌳 Ze kunnen ook de buitenwereld verkennen als je dat wil, maar voor Roxy is een afgeschermde omgeving het beste.',
     imagePathNames: [

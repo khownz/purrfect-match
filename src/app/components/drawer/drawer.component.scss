@@ -68,6 +68,13 @@
       flex: 1 1 auto;
     }
   }
+
+  &-bio-container {
+    .title {
+      margin: 0.5rem 0;
+      color: var(--dark-brown);
+    }
+  }
 }
 
 .secondary-images-container {
