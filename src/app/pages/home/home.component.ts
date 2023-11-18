@@ -6,6 +6,7 @@ import { PawComponent } from '../../components/paw/paw.component';
 import { startVibration } from '../../core/utils/vibration.utils';
 import { PATHS } from '../../app.routes';
 import { Router } from '@angular/router';
+import { fireHeartsConfetti } from '../../core/utils/confetti.utils';
 
 @Component({
   selector: 'app-home',
@@ -76,6 +77,8 @@ export class HomeComponent {
 
   swipeRight(): void {
     this.#vibrate();
+    fireHeartsConfetti();
+
     this.#goToAdoptionConfirmationPage();
   }
 
