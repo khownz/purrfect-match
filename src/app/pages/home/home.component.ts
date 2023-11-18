@@ -10,7 +10,13 @@ import { PawComponent } from '../../components/paw/paw.component';
   imports: [CommonModule, DrawerComponent, PawComponent],
   styleUrl: './home.component.scss',
   template: `
-    <main class="grid" (swipeleft)="swipeLeft()" (swiperight)="swipeRight()">
+    <main
+      class="grid"
+      (swipeleft)="swipeLeft()"
+      (swiperight)="swipeRight()"
+      (pan)="pan($event)"
+      (panend)="panend($event)"
+    >
       <div
         class="primary-image"
         [ngStyle]="{ 'background-image': 'url(' + cats[activeCatIndex].imagePathNames[0] + ')' }"
@@ -28,6 +34,27 @@ import { PawComponent } from '../../components/paw/paw.component';
 export class HomeComponent {
   cats = KITTENS;
   activeCatIndex = 0;
+
+  pan(event: any): void {
+    console.log('pan');
+
+    if (event.deltaX === 0) return;
+    if (event.center.x === 0 && event.center.y === 0) return;
+
+    // tinderContainer.classList.toggle('tinder_love', event.deltaX > 0);
+    // tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
+
+    const rotate = event.deltaX * 0.03;
+
+    // TODO: replace with elementRef
+    const main = document.querySelector('main.grid') as HTMLElement;
+    main.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
+  }
+
+  panend(event: any): void {
+    const main = document.querySelector('main.grid') as HTMLElement;
+    main.style.transform = '';
+  }
 
   swipeLeft(): void {
     this.#showNextCat();

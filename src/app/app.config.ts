@@ -11,9 +11,9 @@ export class MyHammerConfig extends HammerGestureConfig {
   override overrides = <any>{
     // override hammerjs default configuration
     swipe: { direction: Hammer.DIRECTION_HORIZONTAL },
+    pan: { direction: Hammer.DIRECTION_HORIZONTAL },
     pinch: { enable: false },
     rotate: { enable: false },
-    pan: { enable: false },
   };
 }
 
