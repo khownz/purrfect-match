@@ -1,7 +1,8 @@
 export type Cat = {
   name: string;
-  // TODO: should not be optional
-  likes?: string[];
+  // TODO: age should not be optional
+  age?: string;
+  likes: string[];
   bio: string;
   imagePathNames: string[];
 };

@@ -36,11 +36,13 @@ export const KITTENS: Cat[] = [
   },
   {
     name: 'Odette',
+    likes: ['Fletsen', 'Kopjes geven', 'Aaitjes krijgen'],
     bio: 'TODO',
     imagePathNames: ['assets/kittens/odette-1.jpg', 'assets/kittens/odette-2.jpg'],
   },
   {
     name: 'Jools & Joey',
+    likes: ['Rollebollen', 'Spelen', 'Knuffelen', 'Verkennen'],
     bio: 'TODO',
     imagePathNames: [
       'assets/kittens/jools-joey-1.png',
@@ -54,11 +56,13 @@ export const KITTENS: Cat[] = [
   },
   {
     name: 'Dora',
+    likes: ['Geduld', 'Aandacht', 'Liefde', 'Kopjes geven'],
     bio: 'TODO',
     imagePathNames: ['assets/kittens/dora-1.jpg', 'assets/kittens/dora-2.jpg', 'assets/kittens/dora-3.jpg'],
   },
   {
     name: 'Frankie & Fen',
+    likes: ['Warmte', 'Samen ravotten', 'Geduld', 'Buiten zijn'],
     bio: 'TODO',
     imagePathNames: [
       'assets/kittens/frankie-fen-1.jpg',
@@ -69,6 +73,7 @@ export const KITTENS: Cat[] = [
   },
   {
     name: 'Simba & Scooby',
+    likes: ['Actief spelen', 'Kopjes geven', 'Klimmen', 'Knuffelen'],
     bio: 'TODO',
     imagePathNames: [
       'assets/kittens/simba-scooby-1.jpg',
