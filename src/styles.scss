@@ -23,18 +23,6 @@ body {
   margin: 0;
 
   background-color: var(--creme);
-  background-position: center center;
-  background-repeat: no-repeat;
-
-  &.cat-love {
-    background-image: url('/assets/green_paw.svg');
-    background-color: var(--paw-green-light);
-  }
-
-  &.cat-claw {
-    background-image: url('/assets/red_paw.svg');
-    background-color: var(--paw-red-light);
-  }
 }
 
 h1,
