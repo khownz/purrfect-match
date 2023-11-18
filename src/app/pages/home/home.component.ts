@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DrawerComponent } from '../../components/drawer/drawer.component';
 import { KITTENS } from '../../data/kittens';
 import { PawComponent } from '../../components/paw/paw.component';
+import { startVibration } from '../../core/utils/vibration.utils';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,14 @@ import { PawComponent } from '../../components/paw/paw.component';
   styleUrl: './home.component.scss',
   template: `
     <main
+      #container
       class="grid"
       (swipeleft)="swipeLeft()"
       (swiperight)="swipeRight()"
       (pan)="pan($event)"
-      (panend)="panend($event)"
+      (panend)="resetView()"
     >
+      <div class="gradient-overlay-top"></div>
       <div
         class="primary-image"
         [ngStyle]="{ 'background-image': 'url(' + cats[activeCatIndex].imagePathNames[0] + ')' }"
@@ -24,44 +27,53 @@ import { PawComponent } from '../../components/paw/paw.component';
 
       <app-drawer [activeCat]="cats[activeCatIndex]"></app-drawer>
 
+      <div class="gradient-overlay-bottom"></div>
       <div class="paw-buttons">
-        <app-paw color="red" (click)="swipeLeft()" />
-        <app-paw color="green" (click)="swipeRight()" />
+        <app-paw color="red" rotate="left" (click)="swipeLeft()" />
+        <app-paw color="green" rotate="right" (click)="swipeRight()" />
       </div>
     </main>
   `,
 })
 export class HomeComponent {
+  @ViewChild('container', { static: false }) container!: ElementRef;
+
   cats = KITTENS;
   activeCatIndex = 0;
 
   pan(event: any): void {
-    console.log('pan');
-
     if (event.deltaX === 0) return;
     if (event.center.x === 0 && event.center.y === 0) return;
 
-    // tinderContainer.classList.toggle('tinder_love', event.deltaX > 0);
-    // tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
+    // TODO: should probably not be applied to body, but to a wrapper div instead
+    document.body.classList.toggle('cat-love', event.deltaX > 0);
+    document.body.classList.toggle('cat-claw', event.deltaX < 0);
+    document.body.style.backgroundSize = `${Math.abs(event.deltaX) * 0.15}%`;
 
-    const rotate = event.deltaX * 0.03;
-
-    // TODO: replace with elementRef
-    const main = document.querySelector('main.grid') as HTMLElement;
-    main.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
+    const rotate = event.deltaX * 0.02;
+    this.container.nativeElement.style.transform =
+      'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
   }
 
-  panend(event: any): void {
-    const main = document.querySelector('main.grid') as HTMLElement;
-    main.style.transform = '';
+  resetView(): void {
+    document.body.classList.remove('cat-love', 'cat-claw');
+    document.body.style.backgroundSize = 'initial';
+    this.container.nativeElement.style.transform = '';
   }
 
   swipeLeft(): void {
+    this.#vibrate();
     this.#showNextCat();
+    this.#scrollToTop();
   }
 
   swipeRight(): void {
+    this.#vibrate();
     this.#openAdoptionForm();
+  }
+
+  #scrollToTop() {
+    window.scroll(0, 0);
   }
 
   #showNextCat() {
@@ -74,5 +86,9 @@ export class HomeComponent {
 
   #openAdoptionForm(): void {
     window.open('https://www.purrito.be/adoptieformulier/', '_blank');
+  }
+
+  #vibrate(): void {
+    startVibration(500);
   }
 }

@@ -4,6 +4,8 @@
   --brown: #66462cff;
   --beige: #dcc48eff;
   --creme: #f8f4e5ff;
+  --paw-green-light: #f2fabb;
+  --paw-red-light: #ffd1d1;
 }
 
 html,
@@ -21,6 +23,18 @@ body {
   margin: 0;
 
   background-color: var(--creme);
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  &.cat-love {
+    background-image: url('/assets/green_paw.svg');
+    background-color: var(--paw-green-light);
+  }
+
+  &.cat-claw {
+    background-image: url('/assets/red_paw.svg');
+    background-color: var(--paw-red-light);
+  }
 }
 
 h1,
