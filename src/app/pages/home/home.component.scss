@@ -27,6 +27,15 @@ main {
     width: 40px;
   }
 
+  .dark-mode-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+  }
+
   .gradient-overlay {
     &-top {
       position: absolute;

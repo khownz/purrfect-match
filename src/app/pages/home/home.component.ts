@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DrawerComponent } from '../../components/drawer/drawer.component';
 import { KITTENS } from '../../data/kittens';
@@ -8,11 +8,14 @@ import { PATHS } from '../../app.routes';
 import { Router } from '@angular/router';
 import { fireHeartsConfetti } from '../../core/utils/confetti.utils';
 import { ScratchComponent } from '../../components/scratch/scratch.component';
+import { DarkModeBtnComponent } from '../../components/dark-mode-btn/dark-mode-btn.component';
+import { Theme } from '../../core/services/theme/theme.enum';
+import { ThemeService } from '../../core/services/theme/theme.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, DrawerComponent, PawComponent, ScratchComponent],
+  imports: [CommonModule, DrawerComponent, PawComponent, ScratchComponent, DarkModeBtnComponent],
   styleUrl: './home.component.scss',
   template: `
     <main #appRoot>
@@ -25,6 +28,11 @@ import { ScratchComponent } from '../../components/scratch/scratch.component';
         (panend)="resetView()"
       >
         <img class="logo" src="assets/logo.svg" alt="logo" />
+        <app-dark-mode-btn
+          class="dark-mode-btn"
+          [darkModeEnabled]="currentTheme === Theme.DARK"
+          (toggle)="toggleDarkMode()"
+        ></app-dark-mode-btn>
         <div class="gradient-overlay-top"></div>
         <div
           class="primary-image"
@@ -43,15 +51,22 @@ import { ScratchComponent } from '../../components/scratch/scratch.component';
     </main>
   `,
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   @ViewChild('appRoot', { static: false }) appRoot!: ElementRef;
   @ViewChild('swipeContainer', { static: false }) swipeContainer!: ElementRef;
   @ViewChild(ScratchComponent) scratch!: ScratchComponent;
 
+  private readonly router: Router = inject(Router);
+  private themeService = inject(ThemeService);
+
   cats = KITTENS;
   activeCatIndex = 0;
 
-  private readonly router: Router = inject(Router);
+  currentTheme?: Theme;
+
+  ngOnInit(): void {
+    this.currentTheme = this.themeService.getActiveTheme();
+  }
 
   pan(event: any): void {
     if (event.deltaX === 0) return;
@@ -87,6 +102,16 @@ export class HomeComponent {
     this.#goToAdoptionConfirmationPage();
   }
 
+  toggleDarkMode() {
+    if (this.currentTheme === Theme.LIGHT) {
+      this.currentTheme = Theme.DARK;
+      this.themeService.setActiveTheme(Theme.DARK);
+    } else {
+      this.currentTheme = Theme.LIGHT;
+      this.themeService.setActiveTheme(Theme.LIGHT);
+    }
+  }
+
   #scrollToTop() {
     window.scroll(0, 0);
   }
@@ -106,4 +131,6 @@ export class HomeComponent {
   #vibrate(): void {
     startVibration(500);
   }
+
+  protected readonly Theme = Theme;
 }

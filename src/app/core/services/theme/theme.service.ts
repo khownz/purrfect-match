@@ -6,11 +6,11 @@ import { Theme } from './theme.enum';
 })
 export class ThemeService {
   private readonly THEME_KEY = 'activeTheme';
-  private readonly THEME_DEFAULT = Theme.LIGHT.valueOf();
-  private readonly SUPPORTED_THEMES: string[] = Object.values(Theme);
+  private readonly THEME_DEFAULT = Theme.LIGHT;
+  private readonly SUPPORTED_THEMES: Theme[] = Object.values(Theme);
 
   configureActiveTheme(): string {
-    const activeTheme = localStorage.getItem(this.THEME_KEY);
+    const activeTheme = localStorage.getItem(this.THEME_KEY) as Theme;
     if (activeTheme !== null && this.SUPPORTED_THEMES.includes(activeTheme)) {
       this.#applyTheme(activeTheme);
       return activeTheme;
@@ -19,7 +19,16 @@ export class ThemeService {
     }
   }
 
-  setActiveTheme(theme: string) {
+  getActiveTheme() {
+    const activeTheme = localStorage.getItem(this.THEME_KEY) as Theme;
+    if (activeTheme !== null && this.SUPPORTED_THEMES.includes(activeTheme)) {
+      return activeTheme as Theme;
+    } else {
+      return this.setActiveTheme(this.THEME_DEFAULT);
+    }
+  }
+
+  setActiveTheme(theme: Theme) {
     if (!this.SUPPORTED_THEMES.includes(theme)) {
       theme = this.THEME_DEFAULT;
     }
@@ -27,13 +36,15 @@ export class ThemeService {
     return this.#saveActiveTheme(theme);
   }
 
-  #applyTheme(theme: String): void {
-    if (theme === Theme.DARK.valueOf()) {
-      document.documentElement.classList.toggle(Theme.DARK.valueOf());
+  #applyTheme(theme: Theme): void {
+    if (theme === Theme.DARK) {
+      document.documentElement.classList.add(Theme.DARK.valueOf());
+    } else {
+      document.documentElement.classList.remove(Theme.DARK.valueOf());
     }
   }
 
-  #saveActiveTheme(theme: string) {
+  #saveActiveTheme(theme: Theme) {
     localStorage.setItem(this.THEME_KEY, theme);
     return theme;
   }
