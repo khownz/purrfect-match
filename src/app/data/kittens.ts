@@ -1,5 +1,22 @@
 import { Cat } from '../types/cat';
 
+const MYSTERY_CAT: Cat = {
+  name: 'Dausy',
+  age: '5 jaar',
+  likes: ['In dozen zitten', 'Slapen (op baasje)'],
+  bio:
+    '😿 Mijn baasje heeft me achter gelaten om te gaan "werken" in de Ardennen.<br/>' +
+    '🧺 Daarom ben ik op zoek naar een nieuw gezin dat mij een warm mandje kan aanbieden.',
+  imagePathNames: [
+    'assets/kittens/mystery-1.jpg',
+    'assets/kittens/mystery-2.jpg',
+    'assets/kittens/mystery-3.jpg',
+    'assets/kittens/mystery-4.jpg',
+    'assets/kittens/mystery-5.jpg',
+    'assets/kittens/mystery-6.jpg',
+  ],
+};
+
 export const KITTENS: Cat[] = [
   {
     name: 'Ricky & Roxy',
@@ -43,6 +60,7 @@ export const KITTENS: Cat[] = [
     bio: 'TODO',
     imagePathNames: ['assets/kittens/odette-1.jpg', 'assets/kittens/odette-2.jpg'],
   },
+  { ...MYSTERY_CAT },
   {
     name: 'Jools & Joey',
     age: '8 maanden',
