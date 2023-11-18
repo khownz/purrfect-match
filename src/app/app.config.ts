@@ -1,11 +1,12 @@
 import { APP_INITIALIZER, ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { routes } from './app.routes';
 import { ConfigService } from './core/config/config.service';
 import { provideHttpClient } from '@angular/common/http';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule } from '@angular/platform-browser';
 import * as Hammer from 'hammerjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export class MyHammerConfig extends HammerGestureConfig {
   override overrides = <any>{
@@ -19,8 +20,9 @@ export class MyHammerConfig extends HammerGestureConfig {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
     provideHttpClient(),
+    importProvidersFrom([BrowserAnimationsModule]),
     importProvidersFrom(HammerModule),
     {
       provide: APP_INITIALIZER,

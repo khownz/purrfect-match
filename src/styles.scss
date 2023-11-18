@@ -7,6 +7,9 @@
   --spice: #66462c;
   --tan: #d2b48c;
   --tuatara: #232321;
+  --night-rider: #200e0e;
+  --nutmeg: #792b2b;
+  --crete: #70792c;
 }
 
 html {
@@ -21,8 +24,8 @@ html.dark {
   --color-background: var(--tuatara);
   --color-text: var(--tan);
   --color-action-background: var(--spice);
-  --color-success: var(--astra);
-  --color-danger: var(--cosmos);
+  --color-success: var(--crete);
+  --color-danger: var(--nutmeg);
 }
 
 html,

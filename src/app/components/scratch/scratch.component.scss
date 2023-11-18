@@ -1,0 +1,19 @@
+.scratch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.scratch {
+  opacity: 0;
+}
+
+.scratch-bg {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--night-rider);
+  opacity: 1;
+}

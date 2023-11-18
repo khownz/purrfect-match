@@ -1,6 +1,7 @@
 import { Cat } from '../types/cat';
 
 const MYSTERY_CAT: Cat = {
+  id: '1396dbce-3beb-498d-bcf4-420962a3b601',
   name: 'Dausy',
   age: '5 jaar',
   likes: ['In dozen zitten', 'Slapen (op baasje)'],
@@ -19,6 +20,7 @@ const MYSTERY_CAT: Cat = {
 
 export const KITTENS: Cat[] = [
   {
+    id: '3704fefc-2119-43e6-b562-d15e3c57cf66',
     name: 'Ricky & Roxy',
     age: '5 maanden',
     likes: ['Avonturen', 'Speelse Vriendjes', 'Knuffelmomenten', 'Rusten'],
@@ -40,6 +42,7 @@ export const KITTENS: Cat[] = [
     ],
   },
   {
+    id: '1e96e6e8-fcf4-414d-8875-878c0f3cc25e',
     name: 'Opoes & Ophelia',
     age: '3 maanden',
     likes: ['Ontdekkingen', 'Dutjes doen', 'Geborgenheid vinden', 'Knuffelen'],
@@ -54,6 +57,7 @@ export const KITTENS: Cat[] = [
     imagePathNames: ['assets/kittens/opoes-ophelia-1.png', 'assets/kittens/opoes-ophelia-2.png'],
   },
   {
+    id: '2b89e94f-64ea-4422-b77f-e259bcc13806',
     name: 'Odette',
     age: '2 jaar',
     likes: ['Fletsen', 'Kopjes geven', 'Aaitjes krijgen'],
@@ -68,6 +72,7 @@ export const KITTENS: Cat[] = [
   },
   { ...MYSTERY_CAT },
   {
+    id: '0c64377b-4bde-4bfb-88a7-801df132cf54',
     name: 'Jools & Joey',
     age: '8 maanden',
     likes: ['Rollebollen', 'Spelen', 'Knuffelen', 'Verkennen'],
@@ -87,6 +92,7 @@ export const KITTENS: Cat[] = [
     ],
   },
   {
+    id: 'd407bc64-ba78-4f50-80b7-93e6b7fb0036',
     name: 'Dora',
     age: '10 maanden',
     likes: ['Geduld', 'Aandacht', 'Liefde', 'Kopjes geven'],
@@ -98,6 +104,7 @@ export const KITTENS: Cat[] = [
     imagePathNames: ['assets/kittens/dora-1.jpg', 'assets/kittens/dora-2.jpg', 'assets/kittens/dora-3.jpg'],
   },
   {
+    id: '61c9c2b1-1ed0-4c0a-8d4b-c8a29fc72565',
     name: 'Frankie & Fen',
     age: '7 maanden',
     likes: ['Warmte', 'Samen ravotten', 'Geduld', 'Buiten zijn'],
@@ -116,6 +123,7 @@ export const KITTENS: Cat[] = [
     ],
   },
   {
+    id: 'ff765432-353e-40ca-9eff-3f2ce4bf92ef',
     name: 'Simba & Scooby',
     age: '1 jaar',
     likes: ['Actief spelen', 'Kopjes geven', 'Klimmen', 'Knuffelen'],
