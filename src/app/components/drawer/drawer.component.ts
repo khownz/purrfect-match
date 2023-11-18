@@ -11,7 +11,8 @@ import { BadgeComponent } from '../badge/badge.component';
   template: `
     <div class="cat-drawer">
       <div class="cat-ears">
-        <img src="assets/ears.svg" />
+        <div class="cat-ears-bg"></div>
+        <div class="cat-ears-image"></div>
       </div>
       <section class="cat-details">
         <div class="cat-header">
