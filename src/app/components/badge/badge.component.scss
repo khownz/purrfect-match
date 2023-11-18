@@ -1,9 +1,8 @@
-@import '../../../colors.scss';
-
 .badge {
-  background-color: $beige;
-  color: $dark-brown;
-  padding: 8px 20px;
+  font-size: 12px;
+  background-color: var(--beige);
+  color: var(--dark-brown);
+  padding: 8px 12px;
   border-radius: 20px;
   width: fit-content;
   white-space: nowrap;
