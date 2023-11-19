@@ -1,3 +1,5 @@
 export function startVibration(durationInMs: number): void {
-  navigator.vibrate(durationInMs);
+  if (typeof navigator['vibrate'] === 'function') {
+    navigator.vibrate(durationInMs);
+  }
 }
