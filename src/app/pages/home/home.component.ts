@@ -27,7 +27,7 @@ import { ThemeService } from '../../core/services/theme/theme.service';
         (pan)="pan($event)"
         (panend)="resetView()"
       >
-        <img class="logo" src="assets/logo.svg" alt="logo" />
+        <img class="logo" src="assets/logo.svg" alt="logo" (click)="goToWebsite()" />
         <app-dark-mode-btn
           class="dark-mode-btn"
           [darkModeEnabled]="currentTheme === Theme.DARK"
@@ -55,14 +55,12 @@ export class HomeComponent implements OnInit {
   @ViewChild('appRoot', { static: false }) appRoot!: ElementRef;
   @ViewChild('swipeContainer', { static: false }) swipeContainer!: ElementRef;
   @ViewChild(ScratchComponent) scratch!: ScratchComponent;
-
-  private readonly router: Router = inject(Router);
-  private themeService = inject(ThemeService);
-
   cats = KITTENS;
   activeCatIndex = 0;
-
   currentTheme?: Theme;
+  protected readonly Theme = Theme;
+  private readonly router: Router = inject(Router);
+  private themeService = inject(ThemeService);
 
   ngOnInit(): void {
     this.currentTheme = this.themeService.getActiveTheme();
@@ -102,6 +100,10 @@ export class HomeComponent implements OnInit {
     this.#goToAdoptionConfirmationPage();
   }
 
+  goToWebsite(): void {
+    window.open('https://www.purrito.be/', '_blank');
+  }
+
   toggleDarkMode() {
     if (this.currentTheme === Theme.LIGHT) {
       this.currentTheme = Theme.DARK;
@@ -131,6 +133,4 @@ export class HomeComponent implements OnInit {
   #vibrate(): void {
     startVibration(500);
   }
-
-  protected readonly Theme = Theme;
 }
