@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,11 +8,20 @@ import { CommonModule } from '@angular/common';
   styleUrl: './paw.component.scss',
   template: `
     <div class="paw" [ngClass]="rotate">
-      <img class="paw-image" [src]="'assets/' + color + '_paw.svg'" />
+      <img class="paw-image" [src]="imageUrl" />
     </div>
   `,
 })
-export class PawComponent {
+export class PawComponent implements OnChanges {
   @Input() color!: 'green' | 'red';
   @Input() rotate: 'left' | 'none' | 'right' = 'none';
+  @Input() darkModeEnabled!: boolean;
+
+  imageUrl: string = '';
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if ((changes && changes['color']) || changes['darkModeEnabled']) {
+      this.imageUrl = `assets/${this.color}_paw${this.darkModeEnabled ? '_dark' : ''}.svg`;
+    }
+  }
 }

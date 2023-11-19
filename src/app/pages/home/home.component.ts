@@ -43,8 +43,13 @@ import { ThemeService } from '../../core/services/theme/theme.service';
 
         <div class="gradient-overlay-bottom"></div>
         <div class="paw-buttons">
-          <app-paw color="red" rotate="left" (click)="swipeLeft()" />
-          <app-paw color="green" rotate="right" (click)="swipeRight()" />
+          <app-paw color="red" rotate="left" [darkModeEnabled]="currentTheme === Theme.DARK" (click)="swipeLeft()" />
+          <app-paw
+            color="green"
+            rotate="right"
+            [darkModeEnabled]="currentTheme === Theme.DARK"
+            (click)="swipeRight()"
+          />
         </div>
         <app-scratch class="scratch"></app-scratch>
       </section>
