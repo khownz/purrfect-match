@@ -43,8 +43,13 @@ import { ThemeService } from '../../core/services/theme/theme.service';
 
         <div class="gradient-overlay-bottom"></div>
         <div class="paw-buttons">
-          <app-paw color="red" rotate="left" (click)="swipeLeft()" />
-          <app-paw color="green" rotate="right" (click)="swipeRight()" />
+          <app-paw color="red" rotate="left" [darkModeEnabled]="currentTheme === Theme.DARK" (click)="swipeLeft()" />
+          <app-paw
+            color="green"
+            rotate="right"
+            [darkModeEnabled]="currentTheme === Theme.DARK"
+            (click)="swipeRight()"
+          />
         </div>
         <app-scratch class="scratch"></app-scratch>
       </section>
@@ -67,8 +72,15 @@ export class HomeComponent implements OnInit {
   }
 
   pan(event: any): void {
-    if (event.deltaX === 0) return;
-    if (event.center.x === 0 && event.center.y === 0) return;
+    if (event.deltaX === 0) {
+      this.#resetSwipeContainerTransform();
+      return;
+    }
+
+    if (event.center.x === 0 && event.center.y === 0) {
+      this.#resetSwipeContainerTransform();
+      return;
+    }
 
     this.appRoot.nativeElement.classList.toggle('cat-love', event.deltaX > 0);
     this.appRoot.nativeElement.classList.toggle('cat-claw', event.deltaX < 0);
@@ -82,7 +94,7 @@ export class HomeComponent implements OnInit {
   resetView(): void {
     this.appRoot.nativeElement.classList.remove('cat-love', 'cat-claw');
     this.appRoot.nativeElement.style.backgroundSize = 'initial';
-    this.swipeContainer.nativeElement.style.transform = '';
+    this.#resetSwipeContainerTransform();
   }
 
   swipeLeft(): void {
@@ -112,6 +124,10 @@ export class HomeComponent implements OnInit {
       this.currentTheme = Theme.LIGHT;
       this.themeService.setActiveTheme(Theme.LIGHT);
     }
+  }
+
+  #resetSwipeContainerTransform(): void {
+    this.swipeContainer.nativeElement.style.transform = '';
   }
 
   #scrollToTop() {
